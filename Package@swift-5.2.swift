@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 
 import PackageDescription
 
@@ -14,7 +14,7 @@ let package = Package(
                     name: "CSkia",
                     dependencies: [],
                     linkerSettings: [
-                        .linkedLibrary("skia")
+                        .linkedLibrary("skia", .when(platforms: [.android]))
                     ]),
             .target(
                     name: "SkiaSwift",

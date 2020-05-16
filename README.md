@@ -1,3 +1,9 @@
+# My Changed
+
+- Support `Android` platform.  see `android_api_21` branch.
+
+=============================
+
 # SkiaSwift
 
 Swift wrapper for [SkiaSharp](https://github.com/mono/SkiaSharp)'s C API
