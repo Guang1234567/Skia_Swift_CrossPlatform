@@ -1,3 +1,8 @@
+#if os(Linux) || os(Android)
+import Glibc
+#else
+import Darwin
+#endif
 import CSkia
 
 public typealias Matrix = sk_matrix_t

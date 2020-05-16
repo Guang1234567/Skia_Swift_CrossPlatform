@@ -7,9 +7,9 @@ public class Region {
     handle = sk_region_new()
   }
 
-  public init(region: Region) {
+  /*public init(region: Region) {
     handle = sk_region_new2(region.handle)
-  }
+  }*/
 
   public convenience init(rect: RectI) {
     self.init()
@@ -35,13 +35,13 @@ public class Region {
     sk_region_contains(handle, region.handle)
   }
 
-  public func contains(point: PointI) -> Bool {
+  /*public func contains(point: PointI) -> Bool {
     sk_region_contains2(handle, point.x, point.y)
-  }
+  }*/
 
-  public func contains(x: Int32, y: Int32) -> Bool {
+  /*public func contains(x: Int32, y: Int32) -> Bool {
     sk_region_contains2(handle, x, y)
-  }
+  }*/
 
   public func intersects(path: Path) -> Bool {
     var pathRegion: Region? = Region(path: path)
@@ -90,18 +90,20 @@ public class Region {
   }
 
   @discardableResult
-  public func op(rect: RectI, op: RegionOperation) -> Bool {
-    sk_region_op(handle, rect.left, rect.top, rect.right, rect.bottom, op.toC())
+  public func op(rect: inout RectI, op: RegionOperation) -> Bool {
+    let ptr: UnsafePointer<RectI> = UnsafePointer(&rect)
+    return sk_region_op(handle, OpaquePointer(ptr), op.toC())
   }
 
   @discardableResult
   public func op(left: Int32, top: Int32, right: Int32, bottom: Int32, op: RegionOperation) -> Bool {
-    sk_region_op(handle, left, top, right, bottom, op.toC())
+    var rect = RectI(left: left, top: top, right: right, bottom: bottom)
+    return self.op(rect: &rect, op: op)
   }
 
   @discardableResult
   public func op(region: Region, op: RegionOperation) -> Bool {
-    sk_region_op2(handle, region.handle, op.toC())
+    sk_region_op(handle, region.handle, op.toC())
   }
 
   @discardableResult
