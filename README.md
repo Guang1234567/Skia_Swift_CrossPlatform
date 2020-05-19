@@ -2,6 +2,33 @@
 
 - Support `Android` platform.  see `android_api_21` branch.
 
+```bash
+
+# uncompress the jniLibs to the `host_swift_project/.build` directory
+# `host_swift_project` is the project that depends on `skia_swift_cross_platform`
+
+tar -zxvf jniLibs.7z -C host_swift_project/.build
+```
+
+
+```swift
+let package = Package(
+    name: packageName,
+    products: addGenerated([
+    ]),
+    dependencies: [
+        .package(url: "https://github.com/Guang1234567/Skia_Swift_CrossPlatform.git", .branch("android_api_21"))
+    ],
+
+    targets: addGenerated([
+        .target(name: packageName,
+                dependencies: [
+                    "SkiaSwift"
+                ]),
+    ])
+)
+```
+
 =============================
 
 # SkiaSwift
