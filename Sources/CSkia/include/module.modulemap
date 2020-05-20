@@ -1,5 +1,6 @@
 module CSkia {
   header "CSkia.h"
   link "GLESv2"
+  link "z"
   export *
 }
