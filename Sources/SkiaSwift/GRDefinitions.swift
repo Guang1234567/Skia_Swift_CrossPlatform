@@ -5,6 +5,10 @@ import CSkia
 public enum SurfaceOrigin: UInt32 {
   case topLeft,
   bottomLeft
+
+  func toC() -> gr_surfaceorigin_t {
+    gr_surfaceorigin_t(rawValue)
+  }
 }
 
 public enum PixelConfig: UInt32 {

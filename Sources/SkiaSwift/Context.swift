@@ -7,7 +7,7 @@ public class Context {
     self.handle = gr_context_make_gl(glInterface?.handle)!
   }
 
-  convenience init(backend: Backend) {
+  public convenience init(backend: Backend) {
     switch (backend) {
       case .openGl:
         self.init(glInterface: nil)

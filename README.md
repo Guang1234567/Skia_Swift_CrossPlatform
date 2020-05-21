@@ -36,6 +36,8 @@ let package = Package(
 bin/gn gen out/Release/android/arm64-v8a --args='ndk="/tmp/ndk-bundle-16" target_cpu="arm64" extra_cflags_cc=["-frtti", "-Wno-shadow-field"] ndk_api=21 target_os="android" is_debug=false skia_use_system_expat=false skia_use_system_libjpeg_turbo=true skia_use_system_libpng=false skia_use_system_libwebp=true skia_use_system_zlib=true skia_use_system_icu=true skia_use_icu=false skia_use_libjpeg_turbo=false skia_use_system_freetype2=false skia_use_system_jsoncpp=true skia_use_libwebp=false skia_use_system_lua=false skia_use_icu=false skia_use_egl=true skia_use_angle=false skia_enable_pdf=false skia_enable_skottie=false skia_enable_effects=true skia_enable_vulkan_debug_layers=false skia_use_dng_sdk=true skia_use_lua=false skia_use_metal=false skia_enable_flutter_defines=true'
 ```
 
+https://www.skiatest.org/user/build#android
+
 =============================
 
 # SkiaSwift

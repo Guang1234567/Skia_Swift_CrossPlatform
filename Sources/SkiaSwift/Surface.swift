@@ -13,6 +13,18 @@ public class Surface {
     return Surface(handle!)
   }
 
+  public static func gpu(_ context: Context, _ renderTarget: RenderTarget) -> Surface {
+    let handle = sk_surface_new_backend_render_target(
+            context.handle,
+            renderTarget.handle,
+            SurfaceOrigin.bottomLeft.toC(),
+            ColorType.rgba8888.toC(),
+            nil,
+            nil
+    )
+    return Surface(handle!)
+  }
+
   var handle: OpaquePointer
 
   init(_ handle: OpaquePointer) {

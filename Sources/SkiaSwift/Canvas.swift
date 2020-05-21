@@ -84,4 +84,8 @@ public struct Canvas {
     var m = matrix
     sk_canvas_draw_picture(handle, picture.handle, &m, paint.handle)
   }
+
+  public func clear(_ color: Color) {
+    sk_canvas_clear(handle, color)
+  }
 }
