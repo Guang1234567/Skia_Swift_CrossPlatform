@@ -38,6 +38,10 @@ bin/gn gen out/Release/android/arm64-v8a --args='ndk="/tmp/ndk-bundle-16" target
 
 https://www.skiatest.org/user/build#android
 
+## Example
+
+[Swift_Android_Skia_EGl_Example](https://github.com/Guang1234567/Swift_Android_Glue/blob/master/Examples/Android/native-activity/app/src/main/swift/Sources/native-activity/native-activity.swift)
+
 =============================
 
 # SkiaSwift
